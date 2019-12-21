@@ -1,6 +1,7 @@
 <template lang="html">
 <ul v-if='hoverRecipe'>
   <li >Total Cooking Time: {{hoverRecipe.totalTime}} min</li>
+  <li>Number of Servings: {{hoverRecipe.yield}}</li>
   <button v-on:click="handleClick" type="button" name="button">Details</button>
 </ul>
 </template>

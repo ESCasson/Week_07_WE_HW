@@ -1,9 +1,18 @@
 <template>
   <div id="app">
     <h1>This Page</h1>
-    <search-buttons></search-buttons>
-    <recipe-list :recipes='recipes'></recipe-list>
-    <recipe-details :recipeDetails='recipeDetails'></recipe-details>
+    <div class="recipes-container">
+      <div class="recipeList-container">
+        <search-buttons></search-buttons>
+        <recipe-list :recipes='recipes'></recipe-list>
+      </div>
+    <div class="recipe-details">
+      <recipe-details :recipeDetails='recipeDetails'></recipe-details>
+    </div>
+  </div>
+  <div class="favrecipes">
+    <fav-recipes-list :favRecipes='favRecipes'></fav-recipes-list>
+  </div>
   </div>
 </template>
 
@@ -12,6 +21,7 @@ import RecipeList from './components/RecipeList.vue';
 import SearchButtons from './components/SearchButtons.vue';
 import {eventBus} from './main.js';
 import RecipeDetails from './components/RecipeDetails.vue';
+import FavRecipesList from './components/FavRecipesList.vue'
 
 export default {
   name: 'app',
@@ -19,7 +29,8 @@ export default {
   components:{
     "recipe-list": RecipeList,
     "search-buttons": SearchButtons,
-    "recipe-details": RecipeDetails
+    "recipe-details": RecipeDetails,
+    "fav-recipes-list": FavRecipesList
   },
 
   data(){
@@ -27,7 +38,8 @@ export default {
       recipes: [],
       searchIngredient: 'chicken',
       excludeIngredient: null,
-      recipeDetails: null
+      recipeDetails: null,
+      favRecipes: []
     }
   },
 
@@ -55,15 +67,20 @@ export default {
       this.recipeDetails = recipeDetails
     })
 
+    eventBus.$on('bookmarked-book', (bookmarkedBook) => {
+      this.favRecipes.push(bookmarkedBook)
+    })
+
     }
 
 
     }
-
-
 
 </script>
 
 <style>
+.recipes-container {
+  display: flex;
+}
 
 </style>
