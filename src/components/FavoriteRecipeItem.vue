@@ -14,7 +14,7 @@ export default {
   props: ['recipe'],
   methods: {
     removeItem: function(){
-
+        eventBus.$emit('remove-recipe', this.recipe)
     }
   }
 }
