@@ -6,7 +6,7 @@
     <li>Number of Servings: {{recipeDetails.yield}}</li>
     <h2>Ingredients and Amounts</h2>
       <li v-for='item in recipeDetails.ingredientLines'>{{item}}</li>
-      <a :href="recipeDetails.url" width="200px">Link to the Recipe</a>
+      <a :href="recipeDetails.url" width="200px"  target="_blank">Link to the Recipe</a>
       <bookmark :recipeDetails="recipeDetails"></bookmark>
 
   </div>

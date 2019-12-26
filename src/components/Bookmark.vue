@@ -21,6 +21,9 @@ export default {
     handleClick : function(){
     this.bookmarkedBook.recipe = this.recipeDetails
     eventBus.$emit('bookmarked-book', this.bookmarkedBook)
+    this.bookmarkedBook = {recipe: null,
+    made: false,
+    differculty: null,}
   }
 }
 }

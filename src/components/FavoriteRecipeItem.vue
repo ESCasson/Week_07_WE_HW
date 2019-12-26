@@ -1,12 +1,22 @@
 <template lang="html">
-<li>{{recipe.recipe.label}}</li>
+  <div class="">
+    <li>{{recipe.recipe.label}}</li>
+    <button type="button" name="button" v-on:click="removeItem">Remove from Favorites</button>
+  </div>
+
 <!-- add a made and then differculty input item -->
 </template>
 
 <script>
+import { eventBus } from '../main.js';
 export default {
   name: 'favorite-recipe-item',
-  props: ['recipe']
+  props: ['recipe'],
+  methods: {
+    removeItem: function(){
+
+    }
+  }
 }
 </script>
 
