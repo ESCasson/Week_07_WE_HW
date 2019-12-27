@@ -88,7 +88,7 @@ export default {
 
     eventBus.$on('remove-recipe', (recipe) => {
       const index = this.favRecipes.indexOf(recipe);
-      this.favRecipes.splice(index)
+      this.favRecipes.splice(index, 1)
     })
 
     }
